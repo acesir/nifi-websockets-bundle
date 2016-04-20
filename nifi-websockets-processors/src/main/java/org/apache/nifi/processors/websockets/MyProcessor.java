@@ -69,7 +69,7 @@ public class MyProcessor extends AbstractProcessor {
 
     private Set<Relationship> relationships;
 
-    private BlockingQueue events = new LinkedBlockingQueue(100);
+    private BlockingQueue events = new LinkedBlockingQueue();
 
     @Override
     protected void init(final ProcessorInitializationContext context) {
@@ -111,7 +111,7 @@ public class MyProcessor extends AbstractProcessor {
                 }
             });
 
-        FlowFile flowFile = session.get();
+        FlowFile flowFile = session.create();
         if ( flowFile == null ) {
             return;
         }
