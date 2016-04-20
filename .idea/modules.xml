@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/nifi-websockets-bundle.iml" filepath="$PROJECT_DIR$/nifi-websockets-bundle.iml" />
+      <module fileurl="file://$PROJECT_DIR$/nifi-websockets-nar/nifi-websockets-nar.iml" filepath="$PROJECT_DIR$/nifi-websockets-nar/nifi-websockets-nar.iml" />
+      <module fileurl="file://$PROJECT_DIR$/nifi-websockets-processors/nifi-websockets-processors.iml" filepath="$PROJECT_DIR$/nifi-websockets-processors/nifi-websockets-processors.iml" />
+    </modules>
+  </component>
+</project>
