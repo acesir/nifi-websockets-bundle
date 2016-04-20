@@ -42,6 +42,9 @@ import java.util.*;
 import java.util.concurrent.ArrayBlockingQueue;
 import java.util.concurrent.BlockingQueue;
 import java.util.concurrent.CountDownLatch;
+import java.util.concurrent.Executor;
+import java.util.concurrent.Executors;
+import java.util.concurrent.LinkedBlockingQueue;
 
 @Tags({"example"})
 @CapabilityDescription("Provide a description")
@@ -66,9 +69,7 @@ public class MyProcessor extends AbstractProcessor {
 
     private Set<Relationship> relationships;
 
-    private static CountDownLatch latch;
-
-    private BlockingQueue events = null;
+    private BlockingQueue events = new LinkedBlockingQueue(100);
 
     @Override
     protected void init(final ProcessorInitializationContext context) {
@@ -97,20 +98,28 @@ public class MyProcessor extends AbstractProcessor {
 
     @Override
     public void onTrigger(final ProcessContext context, final ProcessSession session) throws ProcessException {
+        ClientManager client = ClientManager.createClient();
+        try {
+            final WsClientEndpoint ws_Client = new WsClientEndpoint(events);
+            client.connectToServer(ws_Client, new URI("ws://localhost:8025/websockets/test"));
+
+            Executor executor = Executors.newSingleThreadExecutor();
+            executor.execute(new Runnable() {
+                @Override
+                public void run() {
+                    ws_Client.Start();
+                }
+            });
+
         FlowFile flowFile = session.get();
         if ( flowFile == null ) {
             return;
         }
         // TODO implement
 
-        latch = new CountDownLatch(1);
+        //latch = new CountDownLatch(1);
 
-        ClientManager client = ClientManager.createClient();
-        try {
-            WsClientEndpoint ws_Client = new WsClientEndpoint(events);
-            client.connectToServer(ws_Client, new URI("ws://localhost:8025/websockets/test"));
-            latch.await();
-
+            //latch.await();
             flowFile = session.write(flowFile, new StreamCallback() {
                 @Override
                 public void process(InputStream inputStream, OutputStream outputStream) throws IOException {
@@ -123,8 +132,8 @@ public class MyProcessor extends AbstractProcessor {
                 }
             });
             session.transfer(flowFile, MY_RELATIONSHIP);
-        } catch (DeploymentException | URISyntaxException | InterruptedException e) {
-            throw new RuntimeException(e);
+        } catch (Exception ex) {
+            throw new RuntimeException(ex);
         }
     }
 }

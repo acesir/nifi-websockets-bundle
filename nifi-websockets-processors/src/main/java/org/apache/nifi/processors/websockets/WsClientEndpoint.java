@@ -28,7 +28,7 @@ public class WsClientEndpoint {
 
     private Logger logger = Logger.getLogger(this.getClass().getName());
     private BlockingQueue messageQueue;
-
+    private static CountDownLatch latch;
     public WsClientEndpoint(BlockingQueue queue){
         messageQueue = queue;
     }
@@ -59,5 +59,15 @@ public class WsClientEndpoint {
     @OnClose
     public void onClose(Session session, CloseReason closeReason) {
         logger.info(String.format("Session %s close because of %s", session.getId(), closeReason));
+    }
+
+    public void Start() {
+        latch = new CountDownLatch(1);
+        try {
+            latch.await();
+        }
+        catch (Exception ex) {
+            System.out.println(ex);
+        }
     }
 }

@@ -43,15 +43,14 @@ public class MyProcessorTest {
         //runner.setProperty(ConvertJSONtoCSV.EMPTY_FIELDS, "NULL");
         //runner.enqueue(Paths.get("src/test/resources/simple.json"));
         runner.run();
+        try {
+            wait();
+        }
+        catch (Exception ex) {
+
+        }
         runner.assertAllFlowFilesTransferred(MyProcessor.MY_RELATIONSHIP);
 
-        try {
-            final MockFlowFile out = runner.getFlowFilesForRelationship(MyProcessor.MY_RELATIONSHIP).get(0);
-            out.assertContentEquals(new String(Files.readAllBytes(Paths.get("src/test/resources/simple.csv"))));
-        }
-        catch (Exception ex){
-            System.out.println(ex);
-        }
     }
 
 }
