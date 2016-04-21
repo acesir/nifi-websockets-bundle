@@ -61,6 +61,16 @@ public class ListenWebSocket extends AbstractProcessor {
             .addValidator(StandardValidators.NON_EMPTY_VALIDATOR)
             .build();
 
+    public static final PropertyDescriptor MAX_MESSAGE_QUEUE_SIZE = new PropertyDescriptor.Builder()
+            .name("Max Size of Message Queue")
+            .description("The maximum size of the internal queue used to buffer messages being transferred from the underlying channel to the processor. " +
+                    "Setting this value higher allows more messages to be buffered in memory during surges of incoming messages, but increases the total " +
+                    "memory used by the processor.")
+            .addValidator(StandardValidators.POSITIVE_INTEGER_VALIDATOR)
+            .defaultValue("10000")
+            .required(true)
+            .build();
+
     public static final Relationship SUCCESS_RELATIONSHIP = new Relationship.Builder()
             .name("success")
             .description("success")
@@ -69,13 +79,14 @@ public class ListenWebSocket extends AbstractProcessor {
     private List<PropertyDescriptor> descriptors;
     private Set<Relationship> relationships;
     private Session session = null;
-    private BlockingQueue events = new LinkedBlockingQueue();
+    private BlockingQueue messageEvents = null;
     //final ExecutorService executor = Executors.newFixedThreadPool(1);
 
     @Override
     protected void init(final ProcessorInitializationContext context) {
         final List<PropertyDescriptor> descriptors = new ArrayList<PropertyDescriptor>();
         descriptors.add(ENDPOINT);
+        descriptors.add(MAX_MESSAGE_QUEUE_SIZE);
         this.descriptors = Collections.unmodifiableList(descriptors);
 
         final Set<Relationship> relationships = new HashSet<Relationship>();
@@ -96,7 +107,7 @@ public class ListenWebSocket extends AbstractProcessor {
     @OnStopped
     public void stopWebSocketListener() {
         try {
-            session.close(new CloseReason(CloseReason.CloseCodes.GOING_AWAY, "NiFi ListenWebSocket stopped"));
+            session.close(new CloseReason(CloseReason.CloseCodes.GOING_AWAY, "NiFi ListenWebSocket stopped ..."));
             session.notify();
             //executor.shutdownNow();
         }
@@ -107,11 +118,13 @@ public class ListenWebSocket extends AbstractProcessor {
 
     @OnScheduled
     public void onScheduled(final ProcessContext context) {
+
         ClientManager client = ClientManager.createClient();
-        final String endpoint = context.getProperty(ENDPOINT).getValue();
+        messageEvents = new LinkedBlockingQueue(context.getProperty(MAX_MESSAGE_QUEUE_SIZE).asInteger());
+
         try {
-            final WsClientEndpoint ws_Client = new WsClientEndpoint(events);
-            session = client.connectToServer(ws_Client, new URI(endpoint));
+            final WsClientEndpoint ws_Client = new WsClientEndpoint(messageEvents);
+            session = client.connectToServer(ws_Client, new URI(context.getProperty(ENDPOINT).getValue()));
 
             //Executor executor = Executors.newSingleThreadExecutor();
             //executor.execute(new Runnable() {
@@ -139,7 +152,7 @@ public class ListenWebSocket extends AbstractProcessor {
             @Override
             public void process(InputStream inputStream, OutputStream outputStream) throws IOException {
                 try {
-                    outputStream.write(events.take().toString().getBytes());
+                    outputStream.write(messageEvents.take().toString().getBytes());
                 }
                 catch (Exception ex) {
                     System.out.println(ex);

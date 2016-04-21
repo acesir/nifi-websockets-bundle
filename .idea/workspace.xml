@@ -2,8 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="4323c75c-b521-4502-b482-a81abee2e463" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/vcs.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nifi-websockets-processors/src/main/java/org/apache/nifi/processors/websockets/ListenWebSocket.java" afterPath="$PROJECT_DIR$/nifi-websockets-processors/src/main/java/org/apache/nifi/processors/websockets/ListenWebSocket.java" />
     </list>
     <ignored path="nifi-websockets-bundle.iws" />
@@ -31,12 +29,12 @@
       <file leaf-file-name="ListenWebSocket.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/nifi-websockets-processors/src/main/java/org/apache/nifi/processors/websockets/ListenWebSocket.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-0.7236662">
-              <caret line="68" column="49" selection-start-line="68" selection-start-column="49" selection-end-line="68" selection-end-column="49" />
+            <state vertical-scroll-proportion="0.32284543">
+              <caret line="62" column="0" selection-start-line="62" selection-start-column="0" selection-end-line="62" selection-end-column="0" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#5260#5651#0" expanded="true" />
-                <element signature="e#5650#5651#0" expanded="true" />
+                <element signature="e#6046#6444#0" expanded="true" />
+                <element signature="e#6443#6444#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -56,7 +54,7 @@
         <entry file="file://$PROJECT_DIR$/nifi-websockets-processors/src/main/java/org/apache/nifi/processors/websockets/WsClientEndpoint.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="39" column="55" selection-start-line="39" selection-start-column="55" selection-end-line="39" selection-end-column="55" />
+              <caret line="50" column="38" selection-start-line="50" selection-start-column="38" selection-end-line="50" selection-end-column="38" />
               <folding />
             </state>
           </provider>
@@ -190,18 +188,6 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="test" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="websockets" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -735,8 +721,8 @@
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#5260#5651#0" expanded="true" />
-            <element signature="e#5650#5651#0" expanded="true" />
+            <element signature="e#6046#6444#0" expanded="true" />
+            <element signature="e#6443#6444#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -763,8 +749,8 @@
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#5260#5651#0" expanded="true" />
-            <element signature="e#5650#5651#0" expanded="true" />
+            <element signature="e#6046#6444#0" expanded="true" />
+            <element signature="e#6443#6444#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -793,8 +779,8 @@
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#5260#5651#0" expanded="true" />
-            <element signature="e#5650#5651#0" expanded="true" />
+            <element signature="e#6046#6444#0" expanded="true" />
+            <element signature="e#6443#6444#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -858,19 +844,19 @@
     <entry file="file://$PROJECT_DIR$/nifi-websockets-processors/src/main/java/org/apache/nifi/processors/websockets/WsClientEndpoint.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="39" column="55" selection-start-line="39" selection-start-column="55" selection-end-line="39" selection-end-column="55" />
+          <caret line="50" column="38" selection-start-line="50" selection-start-column="38" selection-end-line="50" selection-end-column="38" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/nifi-websockets-processors/src/main/java/org/apache/nifi/processors/websockets/ListenWebSocket.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.7236662">
-          <caret line="68" column="49" selection-start-line="68" selection-start-column="49" selection-end-line="68" selection-end-column="49" />
+        <state vertical-scroll-proportion="0.32284543">
+          <caret line="62" column="0" selection-start-line="62" selection-start-column="0" selection-end-line="62" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#5260#5651#0" expanded="true" />
-            <element signature="e#5650#5651#0" expanded="true" />
+            <element signature="e#6046#6444#0" expanded="true" />
+            <element signature="e#6443#6444#0" expanded="true" />
           </folding>
         </state>
       </provider>
