@@ -16,6 +16,7 @@
  */
 package org.apache.nifi.processors.websockets;
 
+import org.apache.nifi.annotation.lifecycle.OnStopped;
 import org.apache.nifi.components.PropertyDescriptor;
 import org.apache.nifi.flowfile.FlowFile;
 import org.apache.nifi.processor.*;
@@ -30,55 +31,57 @@ import org.apache.nifi.annotation.documentation.Tags;
 import org.apache.nifi.processor.exception.ProcessException;
 import org.apache.nifi.processor.io.StreamCallback;
 import org.apache.nifi.processor.util.StandardValidators;
+
 import org.glassfish.tyrus.client.ClientManager;
 
-import javax.websocket.DeploymentException;
+import javax.websocket.CloseReason;
+import javax.websocket.Session;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.net.URI;
-import java.net.URISyntaxException;
 import java.util.*;
-import java.util.concurrent.ArrayBlockingQueue;
 import java.util.concurrent.BlockingQueue;
 import java.util.concurrent.CountDownLatch;
-import java.util.concurrent.Executor;
+import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.LinkedBlockingQueue;
 
-@Tags({"example"})
+@Tags({"websocket, listen"})
 @CapabilityDescription("Provide a description")
 @SeeAlso({})
 @ReadsAttributes({@ReadsAttribute(attribute="", description="")})
 @WritesAttributes({@WritesAttribute(attribute="", description="")})
-public class MyProcessor extends AbstractProcessor {
+public class ListenWebSocket extends AbstractProcessor {
 
-    public static final PropertyDescriptor MY_PROPERTY = new PropertyDescriptor
-            .Builder().name("My Property")
-            .description("Example Property")
+    public static final PropertyDescriptor ENDPOINT = new PropertyDescriptor
+            .Builder().name("WebSocket Endpoint")
+            .description("ws://localhost:8025/websockets/test")
             .required(true)
             .addValidator(StandardValidators.NON_EMPTY_VALIDATOR)
             .build();
 
-    public static final Relationship MY_RELATIONSHIP = new Relationship.Builder()
-            .name("my_relationship")
-            .description("Example relationship")
+    public static final Relationship SUCCESS_RELATIONSHIP = new Relationship.Builder()
+            .name("success")
+            .description("success")
             .build();
 
     private List<PropertyDescriptor> descriptors;
-
+    private static CountDownLatch latch;
     private Set<Relationship> relationships;
-
+    private Session session = null;
+    private javax.websocket.Session ff = null;
     private BlockingQueue events = new LinkedBlockingQueue();
+    final ExecutorService executor = Executors.newFixedThreadPool(1);
 
     @Override
     protected void init(final ProcessorInitializationContext context) {
         final List<PropertyDescriptor> descriptors = new ArrayList<PropertyDescriptor>();
-        descriptors.add(MY_PROPERTY);
+        descriptors.add(ENDPOINT);
         this.descriptors = Collections.unmodifiableList(descriptors);
 
         final Set<Relationship> relationships = new HashSet<Relationship>();
-        relationships.add(MY_RELATIONSHIP);
+        relationships.add(SUCCESS_RELATIONSHIP);
         this.relationships = Collections.unmodifiableSet(relationships);
     }
 
@@ -92,18 +95,27 @@ public class MyProcessor extends AbstractProcessor {
         return descriptors;
     }
 
-    @OnScheduled
-    public void onScheduled(final ProcessContext context) {
+    @OnStopped
+    public void stopWebSocketListener() {
+        try {
+            session.close(new CloseReason(CloseReason.CloseCodes.GOING_AWAY, "NiFi ListenWebSocket stopped"));
+            session.notify();
+            executor.shutdownNow();
+        }
+        catch (Exception ex) {
+        }
+
     }
 
-    @Override
-    public void onTrigger(final ProcessContext context, final ProcessSession session) throws ProcessException {
+    @OnScheduled
+    public void onScheduled(final ProcessContext context) {
         ClientManager client = ClientManager.createClient();
+        final String endpoint = context.getProperty(ENDPOINT).getValue();
         try {
             final WsClientEndpoint ws_Client = new WsClientEndpoint(events);
-            client.connectToServer(ws_Client, new URI("ws://localhost:8025/websockets/test"));
+            session = client.connectToServer(ws_Client, new URI(endpoint));
 
-            Executor executor = Executors.newSingleThreadExecutor();
+            //Executor executor = Executors.newSingleThreadExecutor();
             executor.execute(new Runnable() {
                 @Override
                 public void run() {
@@ -111,29 +123,31 @@ public class MyProcessor extends AbstractProcessor {
                 }
             });
 
+        } catch (Exception ex) {
+            throw new RuntimeException(ex);
+        }
+    }
+
+    @Override
+    public void onTrigger(final ProcessContext context, final ProcessSession session) throws ProcessException {
+
         FlowFile flowFile = session.create();
         if ( flowFile == null ) {
             return;
         }
         // TODO implement
 
-        //latch = new CountDownLatch(1);
-
-            //latch.await();
-            flowFile = session.write(flowFile, new StreamCallback() {
-                @Override
-                public void process(InputStream inputStream, OutputStream outputStream) throws IOException {
-                    try {
-                        outputStream.write(events.take().toString().getBytes());
-                    }
-                    catch (Exception ex) {
-                        System.out.println(ex);
-                    }
+        flowFile = session.write(flowFile, new StreamCallback() {
+            @Override
+            public void process(InputStream inputStream, OutputStream outputStream) throws IOException {
+                try {
+                    outputStream.write(events.take().toString().getBytes());
                 }
-            });
-            session.transfer(flowFile, MY_RELATIONSHIP);
-        } catch (Exception ex) {
-            throw new RuntimeException(ex);
-        }
+                catch (Exception ex) {
+                    System.out.println(ex);
+                }
+            }
+        });
+        session.transfer(flowFile, SUCCESS_RELATIONSHIP);
     }
 }

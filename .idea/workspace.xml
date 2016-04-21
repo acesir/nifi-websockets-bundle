@@ -24,41 +24,29 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="MyProcessor.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/nifi-websockets-processors/src/main/java/org/apache/nifi/processors/websockets/MyProcessor.java">
+      <file leaf-file-name="ListenWebSocket.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/nifi-websockets-processors/src/main/java/org/apache/nifi/processors/websockets/ListenWebSocket.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-0.4626556">
-              <caret line="71" column="59" selection-start-line="71" selection-start-column="59" selection-end-line="71" selection-end-column="59" />
+            <state vertical-scroll-proportion="0.80912864">
+              <caret line="101" column="29" selection-start-line="101" selection-start-column="29" selection-end-line="101" selection-end-column="29" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#3736#3737#0" expanded="true" />
-                <element signature="e#3770#3771#0" expanded="true" />
-                <element signature="e#4329#4478#0" expanded="true" />
-                <element signature="e#4477#4478#0" expanded="true" />
-                <element signature="e#4737#5168#0" expanded="true" />
-                <element signature="e#5167#5168#0" expanded="true" />
+                <element signature="e#3954#3955#0" expanded="true" />
+                <element signature="e#3988#3989#0" expanded="true" />
+                <element signature="e#4778#4927#0" expanded="true" />
+                <element signature="e#4926#4927#0" expanded="true" />
+                <element signature="e#5332#5723#0" expanded="true" />
+                <element signature="e#5722#5723#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="WsClientEndpoint.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/nifi-websockets-processors/src/main/java/org/apache/nifi/processors/websockets/WsClientEndpoint.java">
+      <file leaf-file-name="ListenWebSocketTest.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/nifi-websockets-processors/src/test/java/org/apache/nifi/processors/websockets/ListenWebSocketTest.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="43" column="5" selection-start-line="43" selection-start-column="5" selection-end-line="43" selection-end-column="5" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="MyProcessorTest.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/nifi-websockets-processors/src/test/java/org/apache/nifi/processors/websockets/MyProcessorTest.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="49" column="0" selection-start-line="49" selection-start-column="0" selection-end-line="49" selection-end-column="0" />
+              <caret line="37" column="88" selection-start-line="37" selection-start-column="88" selection-end-line="37" selection-end-column="88" />
               <folding />
             </state>
           </provider>
@@ -89,9 +77,11 @@
         <option value="$PROJECT_DIR$/nifi-websockets-processors/src/main/java/org/apache/nifi/processors/websockets/SendEventBus.java" />
         <option value="$PROJECT_DIR$/nifi-websockets-processors/pom.xml" />
         <option value="$PROJECT_DIR$/nifi-websockets-processors/src/main/java/org/apache/nifi/processors/websockets/WordgameClientEndpoint.java" />
-        <option value="$PROJECT_DIR$/nifi-websockets-processors/src/test/java/org/apache/nifi/processors/websockets/MyProcessorTest.java" />
         <option value="$PROJECT_DIR$/nifi-websockets-processors/src/main/java/org/apache/nifi/processors/websockets/WsClientEndpoint.java" />
+        <option value="$PROJECT_DIR$/nifi-websockets-processors/src/test/java/org/apache/nifi/processors/websockets/MyProcessorTest.java" />
         <option value="$PROJECT_DIR$/nifi-websockets-processors/src/main/java/org/apache/nifi/processors/websockets/MyProcessor.java" />
+        <option value="$PROJECT_DIR$/nifi-websockets-processors/src/test/java/org/apache/nifi/processors/websockets/ListenWebSocketTest.java" />
+        <option value="$PROJECT_DIR$/nifi-websockets-processors/src/main/java/org/apache/nifi/processors/websockets/ListenWebSocket.java" />
       </list>
     </option>
   </component>
@@ -282,8 +272,8 @@
       <recent name="$PROJECT_DIR$/nifi-websockets-processors/src/main/java/org/apache/nifi/processors/websockets" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.MyProcessorTest">
-    <configuration default="false" name="MyProcessorTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="JUnit.ListenWebSocketTest">
+    <configuration default="false" name="ListenWebSocketTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
         <pattern>
           <option name="PATTERN" value="org.apache.nifi.processors.websockets.*" />
@@ -294,7 +284,7 @@
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
       <option name="ALTERNATIVE_JRE_PATH" />
       <option name="PACKAGE_NAME" value="org.apache.nifi.processors.websockets" />
-      <option name="MAIN_CLASS_NAME" value="org.apache.nifi.processors.websockets.MyProcessorTest" />
+      <option name="MAIN_CLASS_NAME" value="org.apache.nifi.processors.websockets.ListenWebSocketTest" />
       <option name="METHOD_NAME" />
       <option name="TEST_OBJECT" value="class" />
       <option name="VM_PARAMETERS" value="-ea" />
@@ -622,11 +612,11 @@
       <method />
     </configuration>
     <list size="1">
-      <item index="0" class="java.lang.String" itemvalue="JUnit.MyProcessorTest" />
+      <item index="0" class="java.lang.String" itemvalue="JUnit.ListenWebSocketTest" />
     </list>
     <recent_temporary>
       <list size="1">
-        <item index="0" class="java.lang.String" itemvalue="JUnit.MyProcessorTest" />
+        <item index="0" class="java.lang.String" itemvalue="JUnit.ListenWebSocketTest" />
       </list>
     </recent_temporary>
   </component>
@@ -646,24 +636,6 @@
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="MyProcessorTest - 2016.04.20 at 16h 08m 57s.xml">
-      <configuration name="MyProcessorTest" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="MyProcessorTest - 2016.04.20 at 16h 09m 13s.xml">
-      <configuration name="MyProcessorTest" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="MyProcessorTest - 2016.04.20 at 16h 12m 02s.xml">
-      <configuration name="MyProcessorTest" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="MyProcessorTest - 2016.04.20 at 16h 12m 14s.xml">
-      <configuration name="MyProcessorTest" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="MyProcessorTest - 2016.04.20 at 16h 15m 21s.xml">
-      <configuration name="MyProcessorTest" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="MyProcessorTest - 2016.04.20 at 16h 15m 38s.xml">
-      <configuration name="MyProcessorTest" configurationId="JUnit" />
-    </history-entry>
     <history-entry file="MyProcessorTest - 2016.04.20 at 16h 16m 21s.xml">
       <configuration name="MyProcessorTest" configurationId="JUnit" />
     </history-entry>
@@ -676,10 +648,28 @@
     <history-entry file="MyProcessorTest - 2016.04.20 at 16h 44m 37s.xml">
       <configuration name="MyProcessorTest" configurationId="JUnit" />
     </history-entry>
+    <history-entry file="MyProcessorTest - 2016.04.20 at 16h 47m 39s.xml">
+      <configuration name="MyProcessorTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="MyProcessorTest - 2016.04.20 at 16h 51m 14s.xml">
+      <configuration name="MyProcessorTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="MyProcessorTest - 2016.04.20 at 16h 51m 30s.xml">
+      <configuration name="MyProcessorTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="MyProcessorTest - 2016.04.20 at 16h 51m 51s.xml">
+      <configuration name="MyProcessorTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="MyProcessorTest - 2016.04.20 at 16h 54m 13s.xml">
+      <configuration name="MyProcessorTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="MyProcessorTest - 2016.04.20 at 16h 54m 46s.xml">
+      <configuration name="MyProcessorTest" configurationId="JUnit" />
+    </history-entry>
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1440" height="828" extended-state="0" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -688,7 +678,7 @@
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32806325" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32806325" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3090278" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -734,18 +724,18 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/nifi-websockets-processors/src/main/java/org/apache/nifi/processors/websockets/MyProcessor.java">
+    <entry file="file://$PROJECT_DIR$/nifi-websockets-processors/src/main/java/org/apache/nifi/processors/websockets/ListenWebSocket.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#3736#3737#0" expanded="true" />
-            <element signature="e#3770#3771#0" expanded="true" />
-            <element signature="e#4329#4478#0" expanded="true" />
-            <element signature="e#4477#4478#0" expanded="true" />
-            <element signature="e#4737#5168#0" expanded="true" />
-            <element signature="e#5167#5168#0" expanded="true" />
+            <element signature="e#3954#3955#0" expanded="true" />
+            <element signature="e#3988#3989#0" expanded="true" />
+            <element signature="e#4778#4927#0" expanded="true" />
+            <element signature="e#4926#4927#0" expanded="true" />
+            <element signature="e#5332#5723#0" expanded="true" />
+            <element signature="e#5722#5723#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -755,7 +745,7 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="44" column="27" selection-start-line="44" selection-start-column="27" selection-end-line="44" selection-end-column="27" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="imports" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -768,23 +758,23 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/nifi-websockets-processors/src/main/java/org/apache/nifi/processors/websockets/MyProcessor.java">
+    <entry file="file://$PROJECT_DIR$/nifi-websockets-processors/src/main/java/org/apache/nifi/processors/websockets/ListenWebSocket.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#3736#3737#0" expanded="true" />
-            <element signature="e#3770#3771#0" expanded="true" />
-            <element signature="e#4329#4478#0" expanded="true" />
-            <element signature="e#4477#4478#0" expanded="true" />
-            <element signature="e#4737#5168#0" expanded="true" />
-            <element signature="e#5167#5168#0" expanded="true" />
+            <element signature="e#3954#3955#0" expanded="true" />
+            <element signature="e#3988#3989#0" expanded="true" />
+            <element signature="e#4778#4927#0" expanded="true" />
+            <element signature="e#4926#4927#0" expanded="true" />
+            <element signature="e#5332#5723#0" expanded="true" />
+            <element signature="e#5722#5723#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/nifi-websockets-processors/src/test/java/org/apache/nifi/processors/websockets/MyProcessorTest.java">
+    <entry file="file://$PROJECT_DIR$/nifi-websockets-processors/src/test/java/org/apache/nifi/processors/websockets/ListenWebSocketTest.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="37" column="59" selection-start-line="37" selection-start-column="59" selection-end-line="37" selection-end-column="59" />
@@ -797,7 +787,7 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="18" column="48" selection-start-line="18" selection-start-column="48" selection-end-line="18" selection-end-column="48" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="imports" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -836,34 +826,34 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/nifi-websockets-processors/src/main/java/org/apache/nifi/processors/websockets/WsClientEndpoint.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="43" column="5" selection-start-line="43" selection-start-column="5" selection-end-line="43" selection-end-column="5" />
+        <state vertical-scroll-proportion="-0.373444">
+          <caret line="30" column="40" selection-start-line="30" selection-start-column="4" selection-end-line="30" selection-end-column="40" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="imports" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/nifi-websockets-processors/src/test/java/org/apache/nifi/processors/websockets/MyProcessorTest.java">
+    <entry file="file://$PROJECT_DIR$/nifi-websockets-processors/src/test/java/org/apache/nifi/processors/websockets/ListenWebSocketTest.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="49" column="0" selection-start-line="49" selection-start-column="0" selection-end-line="49" selection-end-column="0" />
+          <caret line="37" column="88" selection-start-line="37" selection-start-column="88" selection-end-line="37" selection-end-column="88" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/nifi-websockets-processors/src/main/java/org/apache/nifi/processors/websockets/MyProcessor.java">
+    <entry file="file://$PROJECT_DIR$/nifi-websockets-processors/src/main/java/org/apache/nifi/processors/websockets/ListenWebSocket.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.4626556">
-          <caret line="71" column="59" selection-start-line="71" selection-start-column="59" selection-end-line="71" selection-end-column="59" />
+        <state vertical-scroll-proportion="0.80912864">
+          <caret line="101" column="29" selection-start-line="101" selection-start-column="29" selection-end-line="101" selection-end-column="29" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#3736#3737#0" expanded="true" />
-            <element signature="e#3770#3771#0" expanded="true" />
-            <element signature="e#4329#4478#0" expanded="true" />
-            <element signature="e#4477#4478#0" expanded="true" />
-            <element signature="e#4737#5168#0" expanded="true" />
-            <element signature="e#5167#5168#0" expanded="true" />
+            <element signature="e#3954#3955#0" expanded="true" />
+            <element signature="e#3988#3989#0" expanded="true" />
+            <element signature="e#4778#4927#0" expanded="true" />
+            <element signature="e#4926#4927#0" expanded="true" />
+            <element signature="e#5332#5723#0" expanded="true" />
+            <element signature="e#5722#5723#0" expanded="true" />
           </folding>
         </state>
       </provider>

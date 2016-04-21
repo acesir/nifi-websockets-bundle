@@ -16,40 +16,36 @@
  */
 package org.apache.nifi.processors.websockets;
 
-import org.apache.nifi.util.MockFlowFile;
 import org.apache.nifi.util.TestRunner;
 import org.apache.nifi.util.TestRunners;
 import org.junit.Before;
 import org.junit.Test;
 
-import java.nio.file.Files;
-import java.nio.file.Paths;
 
-
-public class MyProcessorTest {
+public class ListenWebSocketTest {
 
     private TestRunner testRunner;
 
     @Before
     public void init() {
-        testRunner = TestRunners.newTestRunner(MyProcessor.class);
+        testRunner = TestRunners.newTestRunner(ListenWebSocket.class);
     }
 
     @Test
     public void testProcessor() {
-        final TestRunner runner = TestRunners.newTestRunner(new MyProcessor());
+        final TestRunner runner = TestRunners.newTestRunner(new ListenWebSocket());
         //runner.setProperty(ConvertJSONtoCSV.DELIMITER, "|");
-        runner.setProperty(MyProcessor.MY_PROPERTY,"konj");
+        runner.setProperty(ListenWebSocket.ENDPOINT,"ws://localhost:8025/websockets/test");
         //runner.setProperty(ConvertJSONtoCSV.EMPTY_FIELDS, "NULL");
         //runner.enqueue(Paths.get("src/test/resources/simple.json"));
         runner.run();
         try {
-            wait();
+            wait(500000);
         }
         catch (Exception ex) {
 
         }
-        runner.assertAllFlowFilesTransferred(MyProcessor.MY_RELATIONSHIP);
+        //runner.assertAllFlowFilesTransferred(MyProcessor.MY_RELATIONSHIP);
 
     }
 
