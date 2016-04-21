@@ -67,12 +67,10 @@ public class ListenWebSocket extends AbstractProcessor {
             .build();
 
     private List<PropertyDescriptor> descriptors;
-    private static CountDownLatch latch;
     private Set<Relationship> relationships;
     private Session session = null;
-    private javax.websocket.Session ff = null;
     private BlockingQueue events = new LinkedBlockingQueue();
-    final ExecutorService executor = Executors.newFixedThreadPool(1);
+    //final ExecutorService executor = Executors.newFixedThreadPool(1);
 
     @Override
     protected void init(final ProcessorInitializationContext context) {
@@ -100,7 +98,7 @@ public class ListenWebSocket extends AbstractProcessor {
         try {
             session.close(new CloseReason(CloseReason.CloseCodes.GOING_AWAY, "NiFi ListenWebSocket stopped"));
             session.notify();
-            executor.shutdownNow();
+            //executor.shutdownNow();
         }
         catch (Exception ex) {
         }
@@ -116,12 +114,12 @@ public class ListenWebSocket extends AbstractProcessor {
             session = client.connectToServer(ws_Client, new URI(endpoint));
 
             //Executor executor = Executors.newSingleThreadExecutor();
-            executor.execute(new Runnable() {
-                @Override
-                public void run() {
-                    ws_Client.Start();
-                }
-            });
+            //executor.execute(new Runnable() {
+            //    @Override
+            //    public void run() {
+            //        ws_Client.Start();
+            //    }
+            //});
 
         } catch (Exception ex) {
             throw new RuntimeException(ex);
