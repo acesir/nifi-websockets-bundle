@@ -30,6 +30,7 @@
     <modules>
         <module>nifi-websockets-processors</module>
         <module>nifi-websockets-nar</module>
+        <module>WebSocketServer</module>
     </modules>
 
 </project>
