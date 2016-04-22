@@ -2,23 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="4323c75c-b521-4502-b482-a81abee2e463" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/WebSocketServer/pom.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/WebSocketServer/src/main/java/org/apache/nifi/ExtendedClientEndpoint.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/WebSocketServer/src/main/java/org/apache/nifi/WebSocketServer.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/WebSocketServer/src/main/java/org/apache/nifi/WsClientEndpoint.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/WebSocketServer/src/main/java/org/apache/nifi/WsServerEndpoint.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nifi-websockets-processors/target/classes/org/apache/nifi/processors/websockets/ListenWebSocket$1.class" afterPath="$PROJECT_DIR$/nifi-websockets-processors/target/classes/org/apache/nifi/processors/websockets/ListenWebSocket$1.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nifi-websockets-processors/target/classes/org/apache/nifi/processors/websockets/ListenWebSocket.class" afterPath="$PROJECT_DIR$/nifi-websockets-processors/target/classes/org/apache/nifi/processors/websockets/ListenWebSocket.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nifi-websockets-processors/target/test-classes/org/apache/nifi/processors/websockets/ListenWebSocketTest.class" afterPath="$PROJECT_DIR$/nifi-websockets-processors/target/test-classes/org/apache/nifi/processors/websockets/ListenWebSocketTest.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/artifacts/nifi_websockets_bundle_jar/nifi-websockets-bundle.jar" afterPath="$PROJECT_DIR$/out/artifacts/nifi_websockets_bundle_jar/nifi-websockets-bundle.jar" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/compiler.xml" afterPath="$PROJECT_DIR$/.idea/compiler.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/encodings.xml" afterPath="$PROJECT_DIR$/.idea/encodings.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/modules.xml" afterPath="$PROJECT_DIR$/.idea/modules.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/WebSocketServer/WebSocketServer.iml" afterPath="$PROJECT_DIR$/WebSocketServer/WebSocketServer.iml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nifi-websockets-bundle.iml" afterPath="$PROJECT_DIR$/nifi-websockets-bundle.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nifi-websockets-processors/src/main/java/org/apache/nifi/processors/websockets/ListenWebSocket.java" afterPath="$PROJECT_DIR$/nifi-websockets-processors/src/main/java/org/apache/nifi/processors/websockets/ListenWebSocket.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pom.xml" afterPath="$PROJECT_DIR$/pom.xml" />
     </list>
     <ignored path="nifi-websockets-bundle.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -43,22 +29,26 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="ListenWebSocket.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="ListenWebSocket.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/nifi-websockets-processors/src/main/java/org/apache/nifi/processors/websockets/ListenWebSocket.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="32" column="57" selection-start-line="32" selection-start-column="57" selection-end-line="32" selection-end-column="57" />
-              <folding />
+            <state vertical-scroll-proportion="0.40289256">
+              <caret line="53" column="42" selection-start-line="53" selection-start-column="26" selection-end-line="53" selection-end-column="61" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="WsClientEndpoint.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="WsClientEndpoint.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/WebSocketServer/src/main/java/org/apache/nifi/WsClientEndpoint.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.24793388">
+            <state vertical-scroll-proportion="0.0">
               <caret line="24" column="13" selection-start-line="24" selection-start-column="13" selection-end-line="24" selection-end-column="13" />
-              <folding />
+              <folding>
+                <element signature="imports" expanded="false" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -99,6 +89,7 @@
         <option value="$PROJECT_DIR$/WebSocketServer/pom.xml" />
         <option value="$PROJECT_DIR$/WebSocketServer/WebSocketServer.iml" />
         <option value="$PROJECT_DIR$/nifi-websockets-processors/src/main/java/org/apache/nifi/processors/websockets/ListenWebSocket.java" />
+        <option value="$PROJECT_DIR$/WebSocketServer/src/main/java/org/apache/nifi/WsClientEndpoint.java" />
       </list>
     </option>
   </component>
@@ -696,8 +687,8 @@
     </history-entry>
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="23" width="1440" height="830" extended-state="6" />
-    <editor active="true" />
+    <frame x="0" y="23" width="1440" height="830" extended-state="0" />
+    <editor active="false" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -706,10 +697,10 @@
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32720104" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32720104" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25555557" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25555557" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -748,7 +739,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="77" column="0" selection-start-line="77" selection-start-column="0" selection-end-line="77" selection-end-column="0" />
-          <folding />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -766,7 +759,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -774,7 +769,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -797,7 +794,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -820,7 +819,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -844,7 +845,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -950,19 +953,23 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/nifi-websockets-processors/src/main/java/org/apache/nifi/processors/websockets/ListenWebSocket.java">
+    <entry file="file://$PROJECT_DIR$/WebSocketServer/src/main/java/org/apache/nifi/WsClientEndpoint.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="32" column="57" selection-start-line="32" selection-start-column="57" selection-end-line="32" selection-end-column="57" />
-          <folding />
+          <caret line="24" column="13" selection-start-line="24" selection-start-column="13" selection-end-line="24" selection-end-column="13" />
+          <folding>
+            <element signature="imports" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/WebSocketServer/src/main/java/org/apache/nifi/WsClientEndpoint.java">
+    <entry file="file://$PROJECT_DIR$/nifi-websockets-processors/src/main/java/org/apache/nifi/processors/websockets/ListenWebSocket.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.24793388">
-          <caret line="24" column="13" selection-start-line="24" selection-start-column="13" selection-end-line="24" selection-end-column="13" />
-          <folding />
+        <state vertical-scroll-proportion="0.40289256">
+          <caret line="53" column="42" selection-start-line="53" selection-start-column="26" selection-end-line="53" selection-end-column="61" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
