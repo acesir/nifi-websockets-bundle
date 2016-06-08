@@ -16,6 +16,7 @@
  */
 package org.apache.nifi.processors.websockets;
 
+import org.apache.commons.lang3.StringUtils;
 import org.apache.nifi.annotation.lifecycle.OnStopped;
 import org.apache.nifi.components.PropertyDescriptor;
 import org.apache.nifi.flowfile.FlowFile;
@@ -29,7 +30,7 @@ import org.apache.nifi.annotation.documentation.CapabilityDescription;
 import org.apache.nifi.annotation.documentation.SeeAlso;
 import org.apache.nifi.annotation.documentation.Tags;
 import org.apache.nifi.processor.exception.ProcessException;
-import org.apache.nifi.processor.io.StreamCallback;
+import org.apache.nifi.processor.io.OutputStreamCallback;
 import org.apache.nifi.processor.util.StandardValidators;
 import org.glassfish.tyrus.client.ClientManager;
 import javax.websocket.CloseReason;
@@ -38,9 +39,11 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.net.URI;
+import java.nio.charset.StandardCharsets;
 import java.util.*;
 import java.util.concurrent.BlockingQueue;
 import java.util.concurrent.LinkedBlockingQueue;
+import java.util.concurrent.TimeUnit;
 
 @Tags({"websocket, listen"})
 @CapabilityDescription("Provide a description")
@@ -74,8 +77,7 @@ public class ListenWebSocket extends AbstractProcessor {
     private List<PropertyDescriptor> descriptors;
     private Set<Relationship> relationships;
     private Session session = null;
-    private BlockingQueue messageEvents = null;
-    //final ExecutorService executor = Executors.newFixedThreadPool(1);
+    private BlockingQueue<String> messageEvents = null;
 
     @Override
     protected void init(final ProcessorInitializationContext context) {
@@ -101,34 +103,31 @@ public class ListenWebSocket extends AbstractProcessor {
 
     @OnStopped
     public void stopWebSocketListener() {
-        try {
-            session.close(new CloseReason(CloseReason.CloseCodes.GOING_AWAY, "NiFi ListenWebSocket stopped ..."));
-            session.notify();
-            //executor.shutdownNow();
+        if (session.isOpen()) {
+            getLogger().info("Stopping WebSocket session...");
+            try {
+                session.close(new CloseReason(CloseReason.CloseCodes.GOING_AWAY, "ListenWebSocket stopped ..."));
+                getLogger().info("WebSocket session stopped");
+            }
+            catch (Exception ex) {
+                getLogger().error(ex.getMessage(), ex);
+            }
         }
-        catch (Exception ex) {
+        else {
+            getLogger().warn("WebSocket session wasn't open");
         }
-
     }
 
     @OnScheduled
     public void onScheduled(final ProcessContext context) {
-
         ClientManager client = ClientManager.createClient();
-        messageEvents = new LinkedBlockingQueue(context.getProperty(MAX_MESSAGE_QUEUE_SIZE).asInteger());
+        messageEvents = new LinkedBlockingQueue<String>(context.getProperty(MAX_MESSAGE_QUEUE_SIZE).asInteger());
 
+        getLogger().info("Starting WebSocket session...");
         try {
             final WsClientEndpoint ws_Client = new WsClientEndpoint(messageEvents);
             session = client.connectToServer(ws_Client, new URI(context.getProperty(ENDPOINT).getValue()));
-
-            //Executor executor = Executors.newSingleThreadExecutor();
-            //executor.execute(new Runnable() {
-            //    @Override
-            //    public void run() {
-            //        ws_Client.Start();
-            //    }
-            //});
-
+            getLogger().info("WebSocket session started");
         } catch (Exception ex) {
             throw new RuntimeException(ex);
         }
@@ -136,24 +135,44 @@ public class ListenWebSocket extends AbstractProcessor {
 
     @Override
     public void onTrigger(final ProcessContext context, final ProcessSession session) throws ProcessException {
-
         FlowFile flowFile = session.create();
-        if ( flowFile == null ) {
+        if (flowFile == null) {
             return;
         }
-        // TODO implement
 
-        flowFile = session.write(flowFile, new StreamCallback() {
+        if (messageEvents.isEmpty()) {
+            getLogger().debug("No WebSocket messages were available");
+            session.remove(flowFile);
+            return;
+        }
+
+        String nextMessage = null;
+        try {
+            nextMessage = messageEvents.poll(1, TimeUnit.SECONDS);
+        }
+        catch (Exception ex) {
+            getLogger().warn(ex.getMessage(), ex);
+        }
+
+        if (StringUtils.isEmpty(nextMessage)) {
+            getLogger().debug("WebSocket message was empty");
+            session.remove(flowFile);
+            return;
+        }
+
+        final String message = nextMessage;
+        flowFile = session.write(flowFile, new OutputStreamCallback() {
             @Override
-            public void process(InputStream inputStream, OutputStream outputStream) throws IOException {
+            public void process(OutputStream outputStream) throws IOException {
                 try {
-                    outputStream.write(messageEvents.take().toString().getBytes());
+                    outputStream.write(message.getBytes(StandardCharsets.UTF_8));
                 }
                 catch (Exception ex) {
-                    System.out.println(ex);
+                    getLogger().error(ex.getMessage(), ex);
                 }
             }
         });
+
         session.transfer(flowFile, SUCCESS_RELATIONSHIP);
     }
 }
