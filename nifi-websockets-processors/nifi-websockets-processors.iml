@@ -11,16 +11,16 @@
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
-    <orderEntry type="library" scope="PROVIDED" name="Maven: org.apache.nifi:nifi-api:0.6.0" level="project" />
-    <orderEntry type="library" name="Maven: org.apache.nifi:nifi-processor-utils:0.6.0" level="project" />
-    <orderEntry type="library" name="Maven: org.apache.nifi:nifi-utils:0.6.0" level="project" />
-    <orderEntry type="library" name="Maven: org.apache.nifi:nifi-security-utils:0.6.0" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Maven: org.apache.nifi:nifi-api:0.6.1" level="project" />
+    <orderEntry type="library" name="Maven: org.apache.nifi:nifi-processor-utils:0.6.1" level="project" />
+    <orderEntry type="library" name="Maven: org.apache.nifi:nifi-utils:0.6.1" level="project" />
+    <orderEntry type="library" name="Maven: org.apache.nifi:nifi-security-utils:0.6.1" level="project" />
     <orderEntry type="library" name="Maven: org.apache.commons:commons-lang3:3.4" level="project" />
     <orderEntry type="library" name="Maven: commons-io:commons-io:2.4" level="project" />
-    <orderEntry type="library" scope="TEST" name="Maven: org.apache.nifi:nifi-mock:0.6.0" level="project" />
-    <orderEntry type="library" scope="TEST" name="Maven: org.apache.nifi:nifi-expression-language:0.6.0" level="project" />
+    <orderEntry type="library" scope="TEST" name="Maven: org.apache.nifi:nifi-mock:0.6.1" level="project" />
+    <orderEntry type="library" scope="TEST" name="Maven: org.apache.nifi:nifi-expression-language:0.6.1" level="project" />
     <orderEntry type="library" scope="TEST" name="Maven: org.antlr:antlr-runtime:3.5.2" level="project" />
-    <orderEntry type="library" scope="TEST" name="Maven: org.apache.nifi:nifi-data-provenance-utils:0.6.0" level="project" />
+    <orderEntry type="library" scope="TEST" name="Maven: org.apache.nifi:nifi-data-provenance-utils:0.6.1" level="project" />
     <orderEntry type="library" scope="TEST" name="Maven: org.slf4j:slf4j-simple:1.7.12" level="project" />
     <orderEntry type="library" scope="PROVIDED" name="Maven: org.slf4j:slf4j-api:1.7.12" level="project" />
     <orderEntry type="library" scope="TEST" name="Maven: junit:junit:4.11" level="project" />
